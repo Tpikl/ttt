@@ -1,4 +1,4 @@
-class TicTacToeStorage {
+class Storage {
   constructor() {
     // Check if the "ttt" object already exists in localStorage
     const existingData = localStorage.getItem("ttt");
@@ -10,7 +10,7 @@ class TicTacToeStorage {
         size: 3,
         active: false,
         turn: 'player1',
-        matrix: []
+        matrix: [],
       };
     }
   }
@@ -32,7 +32,7 @@ class TicTacToeStorage {
     this.saveDataToLocalStorage();
   }
 
-  AdvanceTurn() {
+  advanceTurn() {
     // Check win condition
     this.CheckWinCondition();
 
@@ -42,12 +42,19 @@ class TicTacToeStorage {
       : 'player1';
   }
 
+  UpdateBoxValue(x, y) {
+    // get box
+    let box = this.data.matrix[x][y];
+    box.setValue(ttt.data[ttt.data.turn]);
+  }
+
   CheckWinCondition() {
     // ${this.size} in a row
   }
 }
 
-// Example usage:
-const ttt = new TicTacToeStorage();
-ttt.addValue("player1", "x");
-ttt.addValue("player2", "o");
+  // Initialize ttt storage
+  console.log("> initializing storage at location: `ttt`");
+  const ttt = new Storage();
+  ttt.addValue("player1", "x");
+  ttt.addValue("player2", "o");

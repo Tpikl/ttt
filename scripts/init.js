@@ -1,9 +1,11 @@
 function getScripts() {
+  console.log("> exec getScripts");
+
   let scripts = [
     "box",
+    "storage",
     "controls",
-    "ttt",
-    "storage"
+    "game",
   ];
   let el = document.getElementById('scripts');
 
@@ -13,4 +15,11 @@ function getScripts() {
     el.appendChild(newEl);
   }
 }
-getScripts();
+
+function init() {
+  console.log("> init");
+  // Load in additional scripts
+  getScripts();
+}
+
+init();
