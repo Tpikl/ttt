@@ -18,6 +18,10 @@ class Box {
     return this.value;
   }
 
+  getElement() {
+    return document.getElementById(`${this.y}${this.x}`);
+  }
+
   // Setter methods
   setX(newX) {
     this.x = newX;
@@ -32,10 +36,19 @@ class Box {
     this.value = newValue;
 
     // Update the box element
-    updateBoxElement(this);
+    this.updateElement();
   }
 
-  // Build element
+  updateElement() {
+    var box = this.getElement();
+
+    // Update with value
+    box.classList.add("glow");
+    box.innerHTML = this.value;
+  }
+
+
+  // Element
   static buildElement(x, y) {
     var box = document.createElement("div");
     box.id = `${x}${y}`;
@@ -50,14 +63,10 @@ class Box {
     var charArray = [...event.target.id];
 
     // Update matrix
-    ttt.UpdateBoxValue(charArray[0], charArray[1]);
+    if (ttt.CanMarkBox(charArray[0], charArray[1]))
+      ttt.UpdateBoxValue(charArray[0], charArray[1]);
 
     // Move made. Advance the turn.
     ttt.advanceTurn();
-  }
-
-  // Other methods
-  printDetails() {
-    console.log(`Box: Value=${this.value}, X=${this.x}, Y=${this.y}`);
   }
 }

@@ -1,21 +1,15 @@
 var boardId = "board";
-
-
-function getBoard() {
+function getBoardElement() {
   return document.getElementById(boardId);
 }
 
-function buildBoard(size) {
-  // Clear the board
-  clearBoard();
-
-  // Build the matrix.
-  buildMatrix();
-
-  // draw
-  drawBoard(size);
+// 1
+function clearBoard() {
+  var board = getBoardElement();
+  board.innerHTML = '';
 }
 
+// 2
 function buildMatrix(size) {
   const matrix = [];
 
@@ -32,24 +26,17 @@ function buildMatrix(size) {
   return matrix;
 }
 
-function clearBoard() {
-  var board = getBoard();
-  board.innerHTML = '';
+// 3
+function drawBoard(size) {
+  var matrix = buildMatrix(size);
+
+  renderBoard(matrix);
+  return;
 }
 
-function updateBoxElement(box) {
-  var boxElement = document.getElementById(`${box.y}${box.x}`);
-
-  // Update with value
-  boxElement.classList.add("glow");
-  //var marker = ttt.data[ttt.data.turn];
-  var marker = box.value;
-  boxElement.innerHTML = marker;
-}
-
+// 4
 function renderBoard(matrix) {
-
-  var board = getBoard();
+  var board = getBoardElement();
 
   for (let r = 0; r < matrix.length; r++) {
     const rowElement = document.createElement("div");
@@ -64,9 +51,15 @@ function renderBoard(matrix) {
   }
 }
 
-function drawBoard(size) {
-  var matrix = buildMatrix(size);
 
-  renderBoard(matrix);
-  return;
+// Main
+function buildBoard(size) {
+  // Clear the board
+  clearBoard();
+
+  // Build the matrix.
+  buildMatrix();
+
+  // draw
+  drawBoard(size);
 }

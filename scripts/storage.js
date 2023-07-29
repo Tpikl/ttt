@@ -42,6 +42,13 @@ class Storage {
       : 'player1';
   }
 
+  CanMarkBox(x, y){
+    let box = this.data.matrix[x][y];
+    let canMark = box.value.trim() === '';
+    if (!canMark) console.log("Box already marked!");
+    return canMark;
+  }
+
   UpdateBoxValue(x, y) {
     // get box
     let box = this.data.matrix[x][y];
