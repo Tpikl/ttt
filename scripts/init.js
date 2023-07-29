@@ -6,8 +6,8 @@ function getScripts() {
     "box",
     "storage",
     "controls",
-    "game",
     "winConditions",
+    "game",
   ];
   let el = document.getElementById('scripts');
 

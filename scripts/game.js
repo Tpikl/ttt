@@ -1,6 +1,7 @@
 class Game {
   constructor() {
     this._active = false;
+    this.Winner = null;
   }
 
   SetActive(active) {
@@ -8,6 +9,15 @@ class Game {
   }
   GetActive() {
     this._active;
+  }
+
+  NewGame() {
+    this.Winner = null;
+    board.Init();
+  }
+
+  SubmitTurn(box) {
+
   }
 
   AdvanceTurn() {
@@ -21,11 +31,14 @@ class Game {
   }
 
   CheckWinConditions() {
-    // If no matches, return.
-    if (!WinConditions.CheckAll()) return;
+    // Run the check.
+    WinConditions.CheckAll()
 
-    // Otherwise declare a winner!
-    alert("Winner!");
+    // Declare winner if set!
+    if (this.Winner)
+      alert(`Winner! -={ ${this.Winner} }=-`);
+
+    return true;
   }
 }
 

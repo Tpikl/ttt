@@ -36,7 +36,7 @@ class WinConditions {
       }
 
       if (count == ttt.data.size)
-        alert(`winner is: ${mark}!`);
+        game.Winner = mark;
     }
   }
 

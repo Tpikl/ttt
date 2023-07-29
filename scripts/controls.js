@@ -19,6 +19,5 @@ function submitSize() {
   }
 
   // Run build board.
-  //buildBoard(size);
-  board.Init();
+  game.NewGame();
 }

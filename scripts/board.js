@@ -22,6 +22,7 @@ class Board {
   BuildMatrix() {
     var input = document.getElementById(boardSizeId);
     var size = parseInt(input.value);
+    ttt.addValue("size", size);
 
     const matrix = [];
     for (let r = 0; r < size; r++) {
