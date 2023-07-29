@@ -43,7 +43,7 @@ class Box {
     var box = this.getElement();
 
     // Update with value
-    box.classList.add("glow");
+    // box.classList.add("glow");
     box.innerHTML = this.value;
   }
 
@@ -63,10 +63,11 @@ class Box {
     var charArray = [...event.target.id];
 
     // Update matrix
-    if (ttt.CanMarkBox(charArray[0], charArray[1]))
+    if (ttt.CanMarkBox(charArray[0], charArray[1])) {
       ttt.UpdateBoxValue(charArray[0], charArray[1]);
 
-    // Move made. Advance the turn.
-    game.AdvanceTurn();
+      // Move made. Advance the turn.
+      game.AdvanceTurn();
+    }
   }
 }

@@ -41,7 +41,33 @@ class WinConditions {
   }
 
   static CheckColumns() {
-    return false;
+    var matrix = ttt.data.matrix;
+
+    // Iterate through each row.
+    for (const c in matrix) {
+      let r = 0;
+      let mark = matrix[r][c].value;
+      if (mark == '') continue;
+
+      let count = 0;
+
+      for (r; r < ttt.data.size; r++) {
+        let box = matrix[r][c];
+        // Create skip var to exit quickly.
+        let skip = false;
+        if (skip) continue;
+
+        if (box.value !== mark) {
+          skip = true;
+          continue;
+        }
+
+        count++;
+      }
+
+      if (count == ttt.data.size)
+        game.Winner = mark;
+    }
   }
 
   static CheckDiaginals() {
