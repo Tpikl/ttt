@@ -1,0 +1,54 @@
+/* Native----------------------------- */
+
+html {
+  height: 100%
+}
+
+/* Ids-------------------------------- */
+
+#game {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+#controls {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+#boardSize {
+  width: 40px;
+}
+
+#board {
+  display: flex;
+}
+
+/* Classes---------------------------- */
+
+.container {
+  border-radius: 10px;
+  border-right: 1px  dotted black;
+  border-bottom: 1px dotted black;
+  box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02), 6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028), 12.5px 12.5px 10px rgba(0, 0, 0, 0.035), 22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042), 41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05), 100px 100px 80px rgba(0, 0, 0, 0.07);
+  padding: 10px;
+  margin: 10px;
+}
+
+.box {
+  margin: 5px;
+  width: 30px;
+  height: 30px;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.glow {
+    box-shadow: 0 0 5px #2ecc71;
+}

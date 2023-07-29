@@ -1,0 +1,27 @@
+<html>
+
+  <head>
+    <link rel="stylesheet" type="text/css" href="ttt.css">
+  </head>
+
+  <body>
+    <div id="game">
+
+      <div id="controls" class="container">
+        <label>Board Size
+          <input type="number" id="boardSize" max="9" min="3" oninput="validateSize(this)" value="3" />
+        </label>
+        <button onclick="submitSize()">Submit</button>
+      </div>
+
+      <div id="board" class="container"></div>
+
+    </div>
+
+    <!-- scripts -->
+    <div id="scripts">
+      <script src="scripts/init.js"></script>
+    </div>
+  </body>
+
+</html>
