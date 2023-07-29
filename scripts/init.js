@@ -2,10 +2,12 @@ function getScripts() {
   console.log("> exec getScripts");
 
   let scripts = [
+    "board",
     "box",
     "storage",
     "controls",
     "game",
+    "winConditions",
   ];
   let el = document.getElementById('scripts');
 

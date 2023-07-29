@@ -1,65 +1,32 @@
-var boardId = "board";
-function getBoardElement() {
-  return document.getElementById(boardId);
-}
-
-// 1
-function clearBoard() {
-  var board = getBoardElement();
-  board.innerHTML = '';
-}
-
-// 2
-function buildMatrix(size) {
-  const matrix = [];
-
-  for (let r = 0; r < size; r++) {
-    const row = [];
-    for (let c = 0; c < size; c++) {
-      let box = new Box(c, r, "");
-      row.push(box);
-    }
-    matrix.push(row);
+class Game {
+  constructor() {
+    this._active = false;
   }
 
-  ttt.data.matrix = matrix;
-  return matrix;
-}
+  SetActive(active) {
+    this._active = active;
+  }
+  GetActive() {
+    this._active;
+  }
 
-// 3
-function drawBoard(size) {
-  var matrix = buildMatrix(size);
+  AdvanceTurn() {
+    // Check win condition
+    this.CheckWinConditions();
 
-  renderBoard(matrix);
-  return;
-}
+    let current = ttt.data.turn;
+    ttt.data.turn = current === 'player1'
+      ? 'player2'
+      : 'player1';
+  }
 
-// 4
-function renderBoard(matrix) {
-  var board = getBoardElement();
+  CheckWinConditions() {
+    // If no matches, return.
+    if (!WinConditions.CheckAll()) return;
 
-  for (let r = 0; r < matrix.length; r++) {
-    const rowElement = document.createElement("div");
-    rowElement.classList.add("row");
-
-    for (let c = 0; c < matrix[r].length; c++) {
-      var boxElement = Box.buildElement(c, r);
-      rowElement.appendChild(boxElement);
-    }
-
-    board.appendChild(rowElement);
+    // Otherwise declare a winner!
+    alert("Winner!");
   }
 }
 
-
-// Main
-function buildBoard(size) {
-  // Clear the board
-  clearBoard();
-
-  // Build the matrix.
-  buildMatrix();
-
-  // draw
-  drawBoard(size);
-}
+const game = new Game();

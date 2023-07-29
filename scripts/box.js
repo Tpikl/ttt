@@ -67,6 +67,6 @@ class Box {
       ttt.UpdateBoxValue(charArray[0], charArray[1]);
 
     // Move made. Advance the turn.
-    ttt.advanceTurn();
+    game.AdvanceTurn();
   }
 }
