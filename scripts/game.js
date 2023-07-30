@@ -1,20 +1,25 @@
 class Game {
-  constructor() {
+  constructor(size) {
     this.Winner = null;
+    this.turn = "player1";
+    this.board = new Board(size);
+    this.players = {
+      player1: "x",
+      player2: "o"
+    };
   }
 
-  NewGame() {
+  static NewGame(size) {
     console.log("> new game");
-    this.Winner = null;
-    board.Init();
+    game = new Game(size);
   }
 
   AdvanceTurn() {
     // Check win condition
     this.CheckWinConditions();
 
-    let current = ttt.data.turn;
-    ttt.data.turn = current === 'player1'
+    // Flip the player
+    this.turn = this.turn === 'player1'
       ? 'player2'
       : 'player1';
   }
@@ -32,4 +37,4 @@ class Game {
   }
 }
 
-const game = new Game();
+game = null;

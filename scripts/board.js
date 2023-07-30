@@ -1,57 +1,74 @@
 class Board {
-  static elementId = "board";
-
-  Init() {
-    console.log("> initializing game board");
+  constructor(size) {
+    // Clear existing Board.
     this.Clear();
-    this.BuildMatrix();
+
+    this.size = size ?? 3;
+    this.boxMatrix = this.BuildMatrix();
+
     this.RenderBoard();
   }
+
+  static elementId = "board";
 
   static GetBoardElement() {
     return document.getElementById(Board.elementId);
   }
 
+  // Board re/set
   Clear() {
     var board = Board.GetBoardElement();
-    board.innerHTML = '';
+    if (board.innerHTML) {
+      console.log("> clearing game board");
+      board.innerHTML = '';
+    }
+    console.log("> initializing game board");
   }
-
   BuildMatrix() {
-    var input = document.getElementById(boardSizeId);
-    var size = parseInt(input.value);
-    ttt.addValue("size", size);
+    var size = this.size;
 
     const matrix = [];
     for (let r = 0; r < size; r++) {
       const row = [];
       for (let c = 0; c < size; c++) {
-        let box = new Box(r, c, "");
+        let box = new Box(this, r, c, "");
         row.push(box);
       }
       matrix.push(row);
     }
 
-    // Set storage data.
-    ttt.data.matrix = matrix;
+    return matrix;
   }
-
   RenderBoard() {
-    let matrix = ttt.data.matrix;
+    let matrix = this.boxMatrix;
     var board = Board.GetBoardElement();
 
-    for (let r = 0; r < matrix.length; r++) {
+    for (const r in matrix) {
+      let row = matrix[r];
+
       const rowElement = document.createElement("div");
       rowElement.classList.add("row");
 
-      for (let c = 0; c < matrix[r].length; c++) {
-        var boxElement = Box.buildElement(r, c);
+      for (const b in row) {
+        let box = row[b];
+        var boxElement = box.renderElement();
         rowElement.appendChild(boxElement);
       }
-
       board.appendChild(rowElement);
     }
   }
-}
 
-const board = new Board();
+  // Turn actions
+  CanMarkBox(r, c) {
+    let box = this.boxMatrix[r][c];
+    let canMark = box.value.trim() === '';
+    if (!canMark) console.log("Box already marked!");
+    return canMark;
+  }
+
+  UpdateBoxValue(r, c) {
+    // get box
+    let box = this.boxMatrix[r][c];
+    box.setValue(game.players[game.turn]);
+  }
+}

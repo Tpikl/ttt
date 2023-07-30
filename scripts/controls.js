@@ -19,5 +19,5 @@ function submitSize() {
   }
 
   // Run new game.
-  game.NewGame();
+  Game.NewGame(size);
 }

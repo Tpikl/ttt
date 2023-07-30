@@ -7,7 +7,8 @@ class WinConditions {
   }
 
   static CheckRows() {
-    var matrix = ttt.data.matrix;
+    var matrix = game.board.boxMatrix;
+    let size = game.board.size;
 
     // Iterate through each row.
     for (const r in matrix) {
@@ -36,13 +37,14 @@ class WinConditions {
         count++;
       }
 
-      if (count == ttt.data.size)
+      if (count == size)
         game.Winner = mark;
     }
   }
 
   static CheckColumns() {
-    var matrix = ttt.data.matrix;
+    var matrix = game.board.boxMatrix;
+    let size = game.board.size;
 
     // Iterate through each row.
     for (const c in matrix) {
@@ -52,7 +54,7 @@ class WinConditions {
 
       let count = 0;
 
-      for (r; r < ttt.data.size; r++) {
+      for (r; r < size; r++) {
         let box = matrix[r][c];
         // Create skip var to exit quickly.
         let skip = false;
@@ -66,14 +68,14 @@ class WinConditions {
         count++;
       }
 
-      if (count == ttt.data.size)
+      if (count == size)
         game.Winner = mark;
     }
   }
 
   static CheckDiaginalOne() {
-    let matrix = ttt.data.matrix;
-    let size = ttt.data.size;
+    var matrix = game.board.boxMatrix;
+    let size = game.board.size;
 
     let i = 0;
     let mark = matrix[i][i].value;
@@ -89,8 +91,8 @@ class WinConditions {
   }
 
   static CheckDiaginalTwo() {
-    let matrix = ttt.data.matrix;
-    let size = ttt.data.size;
+    var matrix = game.board.boxMatrix;
+    let size = game.board.size;
 
     let r = 0;
     let c = size-1;
