@@ -13,8 +13,13 @@ class Game {
     // Init new game
     console.log("> new game");
     game = new Game(size);
-
-    // Flip Controls
+  }
+  static Restart() {
+    UserInterface.HideWinner();
+    Game.NewGame(game.board.size);
+  }
+  static Reset() {
+    UserInterface.HideWinner();
     UserInterface.FlipHiddenContainers();
   }
 
@@ -33,11 +38,7 @@ class Game {
     WinConditions.CheckAll()
 
     // Declare winner if set!
-    if (this.Winner) {
-      let winner = `Winner! -={ ${this.Winner} }=-`;
-      console.log(winner);
-      alert(winner);
-    }
+    if (this.Winner) UserInterface.ShowWinner();
   }
 }
 

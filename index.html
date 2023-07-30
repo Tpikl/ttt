@@ -9,15 +9,21 @@
   <body>
     <div id="game">
 
-      <div id="controls" class="container col g5">
+      <div id="controls" class="flip container cntr col g5">
         <label>Board Size
           <input type="number" id="boardSize" max="10" min="3" oninput="validateSize(this)" value="3" />
         </label>
-        <button onclick="submitSize()">Submit</button>
+        <button onclick="startNewGame()">Start</button>
       </div>
 
-      <div id="board" class="container col hidden"></div>
+      <div id="winner" class="container col g5 hidden"></div>
 
+      <div id="board" class="flip container col hidden"></div>
+
+      <div id="gameOver" class="container row g10 hidden">
+        <button onclick="Game.Reset()">New</button>
+        <button onclick="Game.Restart()">Reset</button>
+      </div>
     </div>
 
     <!-- scripts -->

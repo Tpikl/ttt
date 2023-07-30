@@ -8,7 +8,7 @@ function validateSize(element) {
   if (size > 10) input.value = 10;
 }
 
-function submitSize() {
+function startNewGame() {
   var input = document.getElementById(boardSizeId);
   var size = parseInt(input.value);
 
@@ -20,4 +20,7 @@ function submitSize() {
 
   // Run new game.
   Game.NewGame(size);
+
+  // Flip Controls
+  UserInterface.FlipHiddenContainers();
 }

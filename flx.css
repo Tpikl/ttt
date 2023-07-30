@@ -8,5 +8,9 @@
   flex-direction: column;
 }
 
+/* Align */
+.cntr { align-items: center;}
+
 /* Gaps */
-.g5 { gap: 5px;}
+.g5  { gap: 5px;}
+.g10 { gap: 10px;}

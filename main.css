@@ -32,7 +32,9 @@ html {
   padding: 10px;
   margin: 10px;
 }
-
+.container button {
+  width: min-content;
+}
 
 .box {
   margin: 5px;
