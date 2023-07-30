@@ -1,10 +1,8 @@
 class Board {
   static elementId = "board";
-  constructor() {
-    this.blocks = {};
-  }
 
   Init() {
+    console.log("> initializing game board");
     this.Clear();
     this.BuildMatrix();
     this.RenderBoard();
@@ -36,9 +34,6 @@ class Board {
 
     // Set storage data.
     ttt.data.matrix = matrix;
-
-    // Set property data.
-    this.blocks = ttt.data.matrix;
   }
 
   RenderBoard() {

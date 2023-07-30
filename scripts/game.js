@@ -12,12 +12,9 @@ class Game {
   }
 
   NewGame() {
+    console.log("> new game");
     this.Winner = null;
     board.Init();
-  }
-
-  SubmitTurn(box) {
-
   }
 
   AdvanceTurn() {
@@ -35,8 +32,11 @@ class Game {
     WinConditions.CheckAll()
 
     // Declare winner if set!
-    if (this.Winner)
-      alert(`Winner! -={ ${this.Winner} }=-`);
+    if (this.Winner) {
+      let winner = `Winner! -={ ${this.Winner} }=-`;
+      console.log(winner);
+      alert(winner);
+    }
 
     return true;
   }

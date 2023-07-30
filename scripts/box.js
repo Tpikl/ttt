@@ -43,7 +43,7 @@ class Box {
     var box = this.getElement();
 
     // Update with value
-    // box.classList.add("glow");
+    box.classList.add("shadow");
     box.innerHTML = this.value;
   }
 
@@ -59,7 +59,6 @@ class Box {
 
   // Control
   static click(event) {
-    console.log(`clicked: ${event.target.id}`);
     var charArray = [...event.target.id];
 
     // Update matrix
