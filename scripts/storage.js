@@ -32,16 +32,6 @@ class Storage {
     this.saveDataToLocalStorage();
   }
 
-  advanceTurn() {
-    // Check win condition
-    this.CheckWinCondition();
-
-    let current = this.data.turn;
-    this.data.turn = current === 'player1'
-      ? 'player2'
-      : 'player1';
-  }
-
   CanMarkBox(x, y){
     let box = this.data.matrix[x][y];
     let canMark = box.value.trim() === '';
@@ -53,10 +43,6 @@ class Storage {
     // get box
     let box = this.data.matrix[x][y];
     box.setValue(ttt.data[ttt.data.turn]);
-  }
-
-  CheckWinCondition() {
-    // ${this.size} in a row
   }
 }
 

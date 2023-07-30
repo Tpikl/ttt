@@ -5,7 +5,7 @@ function validateSize(element) {
   const size = element.value;
 
   if (size < 3) input.value = 3;
-  if (size > 9) input.value = 9;
+  if (size > 10) input.value = 10;
 }
 
 function submitSize() {
@@ -18,6 +18,6 @@ function submitSize() {
     return;
   }
 
-  // Run build board.
-  buildBoard(size);
+  // Run new game.
+  game.NewGame();
 }

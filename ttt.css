@@ -44,11 +44,19 @@ html {
   width: 30px;
   height: 30px;
   border: 1px solid black;
+  border-radius: 2px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.glow {
-    box-shadow: 0 0 5px #2ecc71;
+.shadow {
+  box-shadow: 2px 2px 2px #bbb,
+              4px 4px 4px #ccc,
+              6px 6px 6px #eee;
+  /* box-shadow: 2px 2px 2.2px rgba(180, 3, 3, 0.541),
+              4px 4px 5.3px rgba(109, 18, 18, 0.603),
+              8px 8px 10px rgba(109, 22, 22, 0.514),
+              10px 10px 17.9px rgba(104, 27, 27, 0.274),
+              12px 12px 33.4px rgb(255, 0, 0, .25); */
 }
