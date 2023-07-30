@@ -7,6 +7,7 @@ function getScripts() {
     "game",
     "controls",
     "winConditions",
+    "ui",
   ];
   let el = document.getElementById('scripts');
 

@@ -1,0 +1,16 @@
+/* Main */
+.row {
+  display: flex;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Align */
+.cntr { align-items: center;}
+
+/* Gaps */
+.g5  { gap: 5px;}
+.g10 { gap: 10px;}
