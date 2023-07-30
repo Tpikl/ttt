@@ -1,34 +1,12 @@
 class Box {
-  constructor(x, y, value) {
-    this.x = x;
-    this.y = y;
+  constructor(r, c, value) {
+    this.r = r;
+    this.c = c;
     this.value = value;
   }
 
-  // Getter methods
-  getX() {
-    return this.x;
-  }
-
-  getY() {
-    return this.y;
-  }
-
-  getValue() {
-    return this.value;
-  }
-
   getElement() {
-    return document.getElementById(`${this.y}${this.x}`);
-  }
-
-  // Setter methods
-  setX(newX) {
-    this.x = newX;
-  }
-
-  setY(newY) {
-    this.y = newY;
+    return document.getElementById(`${this.r}${this.c}`);
   }
 
   setValue(newValue) {
@@ -49,9 +27,9 @@ class Box {
 
 
   // Element
-  static buildElement(x, y) {
+  static buildElement(r, c) {
     var box = document.createElement("div");
-    box.id = `${x}${y}`;
+    box.id = `${r}${c}`;
     box.classList.add("box");
     box.onclick = Box.click;
     return box;
