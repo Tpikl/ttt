@@ -60,6 +60,9 @@ class Board {
 
   // Turn actions
   CanMarkBox(r, c) {
+    // If winner declared, game over.
+    if (game.Winner) return;
+
     let box = this.boxMatrix[r][c];
     let canMark = box.value.trim() === '';
     if (!canMark) console.log("Box already marked!");
