@@ -1,7 +1,7 @@
 class Box {
   constructor(board, r, c, value) {
-    this._id = Box.getId(r, c);
-    this._board = board;
+    this.id = Box.getId(r, c);
+    this.board = board;
     this.r = r;
     this.c = c;
     this.value = value;
@@ -23,7 +23,7 @@ class Box {
     return box;
   }
   updateElement() {
-    var box = Box.getElement(this._id);
+    var box = Box.getElement(this.id);
 
     // Update with value
     box.classList.add("shadow");
@@ -50,8 +50,8 @@ class Box {
     let c = coordArray[1];
 
     // Update matrix
-    if (game._board.CanMarkBox(r, c)) {
-      game._board.UpdateBoxValue(r, c);
+    if (game.board.CanMarkBox(r, c)) {
+      game.board.UpdateBoxValue(r, c);
 
       // Move made. Advance the turn.
       game.AdvanceTurn();

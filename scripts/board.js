@@ -3,7 +3,7 @@ class Board {
     // Clear existing Board.
     this.Clear();
 
-    this._size = size ?? 3;
+    this.size = size ?? 3;
     this.boxMatrix = this.BuildMatrix();
 
     this.RenderBoard();
@@ -25,7 +25,7 @@ class Board {
     console.log("> initializing game board");
   }
   BuildMatrix() {
-    var size = this._size;
+    var size = this.size;
 
     const matrix = [];
     for (let r = 0; r < size; r++) {
@@ -69,6 +69,6 @@ class Board {
   UpdateBoxValue(r, c) {
     // get box
     let box = this.boxMatrix[r][c];
-    box.setValue(game._players[game._turn]);
+    box.setValue(game.players[game.turn]);
   }
 }

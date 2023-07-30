@@ -7,8 +7,8 @@ class WinConditions {
   }
 
   static CheckRows() {
-    var matrix = game._board.boxMatrix;
-    let size = game._board._size;
+    var matrix = game.board.boxMatrix;
+    let size = game.board.size;
 
     // Iterate through each row.
     for (const r in matrix) {
@@ -43,8 +43,8 @@ class WinConditions {
   }
 
   static CheckColumns() {
-    var matrix = game._board.boxMatrix;
-    let size = game._board._size;
+    var matrix = game.board.boxMatrix;
+    let size = game.board.size;
 
     // Iterate through each row.
     for (const c in matrix) {
@@ -74,8 +74,8 @@ class WinConditions {
   }
 
   static CheckDiaginalOne() {
-    var matrix = game._board.boxMatrix;
-    let size = game._board._size;
+    var matrix = game.board.boxMatrix;
+    let size = game.board.size;
 
     let i = 0;
     let mark = matrix[i][i].value;
@@ -91,8 +91,8 @@ class WinConditions {
   }
 
   static CheckDiaginalTwo() {
-    var matrix = game._board.boxMatrix;
-    let size = game._board._size;
+    var matrix = game.board.boxMatrix;
+    let size = game.board.size;
 
     let r = 0;
     let c = size-1;

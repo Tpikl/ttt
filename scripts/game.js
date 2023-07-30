@@ -1,9 +1,9 @@
 class Game {
   constructor(size) {
     this.Winner = null;
-    this._turn = "player1";
-    this._board = new Board(size);
-    this._players = {
+    this.turn = "player1";
+    this.board = new Board(size);
+    this.players = {
       player1: "x",
       player2: "o"
     };
@@ -19,7 +19,7 @@ class Game {
     this.CheckWinConditions();
 
     // Flip the player
-    this._turn = this._turn === 'player1'
+    this.turn = this.turn === 'player1'
       ? 'player2'
       : 'player1';
   }
