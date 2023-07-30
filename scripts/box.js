@@ -1,6 +1,7 @@
 class Box {
-  constructor(r, c, value) {
+  constructor(board, r, c, value) {
     this._id = Box.getId(r, c);
+    this._board = board;
     this.r = r;
     this.c = c;
     this.value = value;
@@ -14,6 +15,13 @@ class Box {
     this.updateElement();
   }
 
+  renderElement() {
+    var box = document.createElement("div");
+    box.id = Box.getId(this.r, this.c);
+    box.classList.add("box");
+    box.onclick = Box.click;
+    return box;
+  }
   updateElement() {
     var box = Box.getElement(this._id);
 
@@ -36,21 +44,14 @@ class Box {
   static getElement(id) {
     return document.getElementById(id);
   }
-  static buildElement(r, c) {
-    var box = document.createElement("div");
-    box.id = Box.getId(r, c);
-    box.classList.add("box");
-    box.onclick = Box.click;
-    return box;
-  }
   static click(event) {
     let coordArray = Box.parseId(event.target.id);
     let r = coordArray[0];
     let c = coordArray[1];
 
     // Update matrix
-    if (ttt.CanMarkBox(r, c)) {
-      ttt.UpdateBoxValue(r, c);
+    if (game._board.CanMarkBox(r, c)) {
+      game._board.UpdateBoxValue(r, c);
 
       // Move made. Advance the turn.
       game.AdvanceTurn();
