@@ -1,0 +1,12 @@
+/* Main */
+.row {
+  display: flex;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Gaps */
+.g5 { gap: 5px;}

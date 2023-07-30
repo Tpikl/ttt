@@ -10,8 +10,12 @@ class Game {
   }
 
   static NewGame(size) {
+    // Init new game
     console.log("> new game");
     game = new Game(size);
+
+    // Flip Controls
+    UserInterface.FlipHiddenContainers();
   }
 
   AdvanceTurn() {

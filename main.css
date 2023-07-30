@@ -14,19 +14,17 @@ html {
   height: 100%;
 }
 
-#controls {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
 #boardSize {
   width: 40px;
 }
 
 /* Classes---------------------------- */
+.hidden {
+  display: none;
+}
 
 .container {
+  /* display: none; */
   border-radius: 10px;
   border-right: 1px  dotted black;
   border-bottom: 1px dotted black;
@@ -35,14 +33,6 @@ html {
   margin: 10px;
 }
 
-.col {
-  display: flex;
-  flex-direction: column;
-}
-
-.row {
-  display: flex;
-}
 
 .box {
   margin: 5px;
