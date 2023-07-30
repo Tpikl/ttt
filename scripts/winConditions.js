@@ -1,8 +1,9 @@
 class WinConditions {
   static CheckAll() {
-    if (this.CheckRows()) return true;
-    if (this.CheckColumns()) return true;
-    if (this.CheckDiaginals()) return true;
+    this.CheckRows();
+    this.CheckColumns();
+    this.CheckDiaginalOne();
+    this.CheckDiaginalTwo();
   }
 
   static CheckRows() {
@@ -70,7 +71,41 @@ class WinConditions {
     }
   }
 
-  static CheckDiaginals() {
-    return false;
+  static CheckDiaginalOne() {
+    let matrix = ttt.data.matrix;
+    let size = ttt.data.size;
+
+    let i = 0;
+    let mark = matrix[i][i].value;
+    if (mark == '') return;
+
+    // left to right
+    for (i++; i < size; i++) {
+      let box = matrix[i][i];
+      if (box.value !== mark) return;
+    }
+
+    game.Winner = mark;
+  }
+
+  static CheckDiaginalTwo() {
+    let matrix = ttt.data.matrix;
+    let size = ttt.data.size;
+
+    let r = 0;
+    let c = size-1;
+    let mark = matrix[r][c].value;
+    if (mark == '') return;
+
+    r++;
+    c--;
+    // right to left
+    for (c; c >= 0; c--) {
+      let box = matrix[r][c];
+      if (box.value !== mark) return;
+      r++;
+    }
+
+    game.Winner = mark;
   }
 }
