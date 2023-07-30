@@ -1,14 +1,6 @@
 class Game {
   constructor() {
-    this._active = false;
     this.Winner = null;
-  }
-
-  SetActive(active) {
-    this._active = active;
-  }
-  GetActive() {
-    this._active;
   }
 
   NewGame() {
@@ -37,8 +29,6 @@ class Game {
       console.log(winner);
       alert(winner);
     }
-
-    return true;
   }
 }
 

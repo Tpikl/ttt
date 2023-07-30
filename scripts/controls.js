@@ -18,6 +18,6 @@ function submitSize() {
     return;
   }
 
-  // Run build board.
+  // Run new game.
   game.NewGame();
 }
