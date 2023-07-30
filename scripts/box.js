@@ -1,34 +1,9 @@
 class Box {
-  constructor(x, y, value) {
-    this.x = x;
-    this.y = y;
+  constructor(r, c, value) {
+    this._id = Box.getId(r, c);
+    this.r = r;
+    this.c = c;
     this.value = value;
-  }
-
-  // Getter methods
-  getX() {
-    return this.x;
-  }
-
-  getY() {
-    return this.y;
-  }
-
-  getValue() {
-    return this.value;
-  }
-
-  getElement() {
-    return document.getElementById(`${this.y}${this.x}`);
-  }
-
-  // Setter methods
-  setX(newX) {
-    this.x = newX;
-  }
-
-  setY(newY) {
-    this.y = newY;
   }
 
   setValue(newValue) {
@@ -40,30 +15,42 @@ class Box {
   }
 
   updateElement() {
-    var box = this.getElement();
+    var box = Box.getElement(this._id);
 
     // Update with value
     box.classList.add("shadow");
     box.innerHTML = this.value;
   }
 
+  // Id
+  static idSplitter = ':';
+  static getId(r, c) {
+    return `${r}${Box.idSplitter}${c}`;
+  }
+  static parseId(id) {
+    let split = id.split(Box.idSplitter);
+    return [split[0], split[1]];
+  }
 
-  // Element
-  static buildElement(x, y) {
+  // Html Element
+  static getElement(id) {
+    return document.getElementById(id);
+  }
+  static buildElement(r, c) {
     var box = document.createElement("div");
-    box.id = `${x}${y}`;
+    box.id = Box.getId(r, c);
     box.classList.add("box");
     box.onclick = Box.click;
     return box;
   }
-
-  // Control
   static click(event) {
-    var charArray = [...event.target.id];
+    let coordArray = Box.parseId(event.target.id);
+    let r = coordArray[0];
+    let c = coordArray[1];
 
     // Update matrix
-    if (ttt.CanMarkBox(charArray[0], charArray[1])) {
-      ttt.UpdateBoxValue(charArray[0], charArray[1]);
+    if (ttt.CanMarkBox(r, c)) {
+      ttt.UpdateBoxValue(r, c);
 
       // Move made. Advance the turn.
       game.AdvanceTurn();

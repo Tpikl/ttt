@@ -26,7 +26,7 @@ class Board {
     for (let r = 0; r < size; r++) {
       const row = [];
       for (let c = 0; c < size; c++) {
-        let box = new Box(c, r, "");
+        let box = new Box(r, c, "");
         row.push(box);
       }
       matrix.push(row);
@@ -45,7 +45,7 @@ class Board {
       rowElement.classList.add("row");
 
       for (let c = 0; c < matrix[r].length; c++) {
-        var boxElement = Box.buildElement(c, r);
+        var boxElement = Box.buildElement(r, c);
         rowElement.appendChild(boxElement);
       }
 

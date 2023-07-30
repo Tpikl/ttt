@@ -32,16 +32,16 @@ class Storage {
     this.saveDataToLocalStorage();
   }
 
-  CanMarkBox(x, y){
-    let box = this.data.matrix[x][y];
+  CanMarkBox(r, c){
+    let box = this.data.matrix[r][c];
     let canMark = box.value.trim() === '';
     if (!canMark) console.log("Box already marked!");
     return canMark;
   }
 
-  UpdateBoxValue(x, y) {
+  UpdateBoxValue(r, c) {
     // get box
-    let box = this.data.matrix[x][y];
+    let box = this.data.matrix[r][c];
     box.setValue(ttt.data[ttt.data.turn]);
   }
 }
