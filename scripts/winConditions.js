@@ -1,9 +1,18 @@
 class WinConditions {
   static CheckAll() {
+    this.CheckTie();
     this.CheckRows();
     this.CheckColumns();
     this.CheckDiaginalOne();
     this.CheckDiaginalTwo();
+  }
+
+  static CheckTie() {
+    let size = game.board.size;
+    let turnCount = game.turnCount +1;
+
+    if (turnCount == (size * size))
+      game.Winner = "=";
   }
 
   static CheckRows() {

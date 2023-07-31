@@ -2,6 +2,7 @@ class Game {
   constructor(size) {
     this.Winner = null;
     this.turn = "player1";
+    this.turnCount = 0;
     this.board = new Board(size);
     this.players = {
       player1: "x",
@@ -31,6 +32,7 @@ class Game {
     this.turn = this.turn === 'player1'
       ? 'player2'
       : 'player1';
+    this.turnCount++;
   }
 
   CheckWinConditions() {
