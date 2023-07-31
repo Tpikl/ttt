@@ -26,7 +26,7 @@ class Box {
     var box = Box.getElement(this.id);
 
     // Update with value
-    box.classList.add("shadow");
+    box.classList.add("l-shadow");
     box.innerHTML = this.value;
   }
 

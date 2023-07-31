@@ -4,6 +4,7 @@ function validateSize(element) {
   var input = document.getElementById(boardSizeId);
   const size = element.value;
 
+  if (size == '') return;
   if (size < 3) input.value = 3;
   if (size > 10) input.value = 10;
 }
@@ -24,3 +25,20 @@ function startNewGame() {
   // Flip Controls
   UserInterface.FlipHiddenContainers();
 }
+
+
+const boardSize = document.getElementById('boardSize');
+boardSize.addEventListener('wheel', function (event) {
+  // Prevent the default scroll behavior
+  event.preventDefault();
+
+  // Determine the scroll direction (up or down)
+  const scrollDirection = event.deltaY < 0 ? 'up' : 'down';
+
+  // Increment or decrement the input value based on the scroll direction
+  if (scrollDirection === 'up') {
+    boardSize.stepUp(); // Increment the value
+  } else {
+    boardSize.stepDown(); // Decrement the value
+  }
+});
