@@ -26,7 +26,7 @@ function startNewGame() {
   UserInterface.FlipHiddenContainers();
 }
 
-
+// Scroll wheel support for boardSize input.
 const boardSize = document.getElementById('boardSize');
 boardSize.addEventListener('wheel', function (event) {
   // Prevent the default scroll behavior
@@ -35,10 +35,8 @@ boardSize.addEventListener('wheel', function (event) {
   // Determine the scroll direction (up or down)
   const scrollDirection = event.deltaY < 0 ? 'up' : 'down';
 
-  // Increment or decrement the input value based on the scroll direction
-  if (scrollDirection === 'up') {
-    boardSize.stepUp(); // Increment the value
-  } else {
-    boardSize.stepDown(); // Decrement the value
-  }
+  if (scrollDirection === 'up')
+    boardSize.stepUp();
+  else
+    boardSize.stepDown();
 });
