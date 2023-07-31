@@ -61,7 +61,7 @@ class Board {
   // Turn actions
   CanMarkBox(r, c) {
     // If winner declared, game over.
-    if (game.Winner) return;
+    if (game.winner) return;
 
     let box = this.boxMatrix[r][c];
     let canMark = box.value.trim() === '';

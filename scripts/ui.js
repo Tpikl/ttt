@@ -11,11 +11,11 @@ class UserInterface {
   }
 
   static ShowWinner() {
-    if (!game.Winner) return;
+    if (!game.winner) return;
     let winner = document.getElementById("winner");
-    let message = game.Winner == "="
+    let message = game.winner == "="
     ? `Game tie!`
-    : `Winner! -={ ${game.Winner} }=-`;
+    : `Winner! -={ ${game.winner} }=-`;
 
     console.log(message);
     winner.innerHTML = message

@@ -1,6 +1,6 @@
 class Game {
   constructor(size) {
-    this.Winner = null;
+    this.winner = null;
     this.turn = "player1";
     this.turnCount = 0;
     this.board = new Board(size);
@@ -40,7 +40,7 @@ class Game {
     WinConditions.CheckAll()
 
     // Declare winner if set!
-    if (this.Winner) UserInterface.ShowWinner();
+    if (this.winner) UserInterface.ShowWinner();
   }
 }
 
