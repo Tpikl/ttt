@@ -1,9 +1,18 @@
 class WinConditions {
   static CheckAll() {
+    this.CheckTie();
     this.CheckRows();
     this.CheckColumns();
     this.CheckDiaginalOne();
     this.CheckDiaginalTwo();
+  }
+
+  static CheckTie() {
+    let size = game.board.size;
+    let turnCount = game.turnCount +1;
+
+    if (turnCount == (size * size))
+      game.winner = "=";
   }
 
   static CheckRows() {
@@ -38,7 +47,7 @@ class WinConditions {
       }
 
       if (count == size)
-        game.Winner = mark;
+        game.winner = mark;
     }
   }
 
@@ -69,7 +78,7 @@ class WinConditions {
       }
 
       if (count == size)
-        game.Winner = mark;
+        game.winner = mark;
     }
   }
 
@@ -87,7 +96,7 @@ class WinConditions {
       if (box.value !== mark) return;
     }
 
-    game.Winner = mark;
+    game.winner = mark;
   }
 
   static CheckDiaginalTwo() {
@@ -108,6 +117,6 @@ class WinConditions {
       r++;
     }
 
-    game.Winner = mark;
+    game.winner = mark;
   }
 }
