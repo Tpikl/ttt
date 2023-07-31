@@ -43,3 +43,4 @@ class Game {
 }
 
 game = null;
+Game.NewGame();

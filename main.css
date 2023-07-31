@@ -1,7 +1,8 @@
 /* Native----------------------------- */
 
 html {
-  height: 100%
+  height: 100%;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 /* Ids-------------------------------- */
@@ -15,7 +16,23 @@ html {
 }
 
 #boardSize {
-  width: 40px;
+  font-size: 16px;
+  width: 25px;
+  border: none;
+  outline: none;
+  caret-color: transparent;
+  appearance: textfield;
+}
+
+#topRight {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  margin: 10px;
+}
+
+#gameOver {
+  height: 19px; /* Just to equalize the height diff w/ #winner */
 }
 
 /* Classes---------------------------- */
@@ -24,11 +41,6 @@ html {
 }
 
 .container {
-  /* display: none; */
-  border-radius: 10px;
-  border-right: 1px  dotted black;
-  border-bottom: 1px dotted black;
-  box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02), 6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028), 12.5px 12.5px 10px rgba(0, 0, 0, 0.035), 22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042), 41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05), 100px 100px 80px rgba(0, 0, 0, 0.07);
   padding: 10px;
   margin: 10px;
 }
@@ -36,24 +48,69 @@ html {
   width: min-content;
 }
 
+.border {
+  border-radius: 10px;
+  border-right: 1px  dotted black;
+  border-bottom: 1px dotted black;
+}
+
 .box {
   margin: 5px;
   width: 30px;
   height: 30px;
-  border: 1px solid black;
-  border-radius: 2px;
+  border-left: 1px solid rgba(0, 0, 0, .25);
+  border-top: 1px solid rgba(0, 0, 0,  .25);
+  border-right: 1px solid rgba(0, 0, 0, .1);
+  border-bottom: 1px solid rgba(0, 0, 0, .1);
+  border-radius: 3px;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  box-shadow: inset -2px -2px 4px rgba(0,0,0,.03);
 }
 
+.iconButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+/* .iconButton > img {
+  width: 18px;
+  height: 18px;
+} */
+
 .shadow {
+  box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),
+  6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
+  12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
+  22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
+  41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05),
+  100px 100px 80px rgba(0, 0, 0, 0.07);
+}
+.box.selected {
+  border:1px solid black;
   box-shadow: 2px 2px 2px #bbb,
               4px 4px 4px #ccc,
-              6px 6px 6px #eee;
+              6px 6px 6px #eee,
+              inset -2px -2px 4px rgba(10,10,10,.09);;
+
   /* box-shadow: 2px 2px 2.2px rgba(180, 3, 3, 0.541),
               4px 4px 5.3px rgba(109, 18, 18, 0.603),
               8px 8px 10px rgba(109, 22, 22, 0.514),
               10px 10px 17.9px rgba(104, 27, 27, 0.274),
               12px 12px 33.4px rgb(255, 0, 0, .25); */
+}
+
+/* Hide number input arrows */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+img.s16 {
+  width: 16px;
+  height: 16px;
 }

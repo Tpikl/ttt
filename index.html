@@ -7,28 +7,40 @@
   </head>
 
   <body>
+    <div id="topRight">
+      <button class="iconButton" onclick="Game.Reset()">
+        <img src="icons/gear.png" alt="options" class="s16">
+      </button>
+    </div>
+
     <div id="game">
 
-      <div id="controls" class="flip container cntr col g5">
-        <label>Board Size
-          <input type="number" id="boardSize" max="10" min="3" oninput="validateSize(this)" value="3" />
-        </label>
-        <button onclick="startNewGame()">Start</button>
+      <div id="controls" class="flip container border shadow row cntr hidden">
+        <input type="number" id="boardSize" max="10" min="3" oninput="validateSize(this)" value="3" />
+        <button class="iconButton" onclick="startNewGame()">
+          <img src="icons/play.png" alt="Start" class="s16">
+        </button>
       </div>
 
-      <div id="winner" class="container col g5 hidden"></div>
+      <div id="winner" class="container border shadow col g5 hidden"></div>
 
-      <div id="board" class="flip container col hidden"></div>
+      <div id="board" class="flip container border shadow col"></div>
 
-      <div id="gameOver" class="container row g10 hidden">
-        <button onclick="Game.Reset()">New</button>
-        <button onclick="Game.Restart()">Reset</button>
+      <div id="gameOver" class="container hidden">
+        <button class="iconButton" onclick="Game.Restart()">
+          <img src="icons/refresh.png" alt="Start" class="s16">
+        </button>
       </div>
     </div>
 
     <!-- scripts -->
     <div id="scripts">
-      <script src="scripts/init.js"></script>
+      <script src="scripts/box.js"></script>
+      <script src="scripts/board.js"></script>
+      <script src="scripts/controls.js"></script>
+      <script src="scripts/winConditions.js"></script>
+      <script src="scripts/ui.js"></script>
+      <script src="scripts/game.js"></script>
     </div>
   </body>
 
