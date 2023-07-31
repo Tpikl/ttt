@@ -15,7 +15,7 @@
 
     <div id="game">
 
-      <div id="controls" class="flip container border shadow row cntr">
+      <div id="controls" class="flip container border shadow row cntr hidden">
         <input type="number" id="boardSize" max="10" min="3" oninput="validateSize(this)" value="3" />
         <button class="iconButton" onclick="startNewGame()">
           <img src="icons/play.png" alt="Start" class="s16">
@@ -24,7 +24,7 @@
 
       <div id="winner" class="container border shadow col g5 hidden"></div>
 
-      <div id="board" class="flip container border shadow col hidden"></div>
+      <div id="board" class="flip container border shadow col"></div>
 
       <div id="gameOver" class="container hidden">
         <button class="iconButton" onclick="Game.Restart()">

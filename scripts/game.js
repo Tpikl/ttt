@@ -42,4 +42,8 @@ class Game {
   }
 }
 
-game = null;
+// Temp. solution to loading issue.
+setTimeout(() => {
+  game = null;
+  Game.NewGame();
+}, 250);
